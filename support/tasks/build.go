@@ -55,4 +55,7 @@ func main() {
 	if err = publisher.Publish(ctx, "https://informvinu.dropmark.com/684931.json"); err != nil {
 		panic(err)
 	}
+	if err = publisher.Publish(ctx, "https://vprd.dropmark.com/684925.json"); err != nil {
+		panic(err)
+	}
 }
