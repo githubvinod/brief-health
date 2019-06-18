@@ -4,21 +4,26 @@
   <body class="single-body">
     {{ partial "nav-bar.html" . }}
     <main class="content side-text-padding single-blog-card inner-card">
-      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
-        <header class="post-header">
-        	<h1 class="post-title">{{ .Title }}</h1>
-          <p class="post-date">Posted <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time> via <a href="{{ .Params.link }}">{{ .Params.linkBrand }}</a>
-          {{ if (isset .Params "categories") }} | {{ range .Params.categories }}<a class="category" href="/categories/{{ . | urlize }}">#{{ . }}</a> {{ end }}{{ end }}
-          {{ if gt .Params.socialScore 0 }} | {{ .Params.socialScore }} shares{{ end }}
-          </p>          
-        </header>
-        {{ if isset .Params "featuredimage" }}
+
+       {{ if isset .Params "featuredimage" }}
         <picture class="post-figure m-b-15">
             <a href="{{ .Params.link }}"><img src="{{.Params.featuredimage | absURL }}" {{ if isset .Params "featuredimagedescription" }}alt="{{.Params.featuredimagedescription}}"{{end}}></a>
         </picture>
+        {{ else }}
+         <picture class="post-figure m-b-15">
+             <img src="/img/no-image-article.jpg">
+        </picture>
         {{ end }}
-        
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+       
         <div class = "cover-content">
+            <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+          <p class="post-date">Posted <time  datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time> via <a style = "margin-left:3px;" target = "_blank" href="{{ .Params.link }}">{{ .Params.linkBrand }}</a>
+          {{ if (isset .Params "categories") }} | {{ range .Params.categories }}<a  class="category" href="/categories/{{ . | urlize }}">#{{ . }}</a> {{ end }}{{ end }}
+          {{ if gt .Params.socialScore 0 }} | {{ .Params.socialScore }} shares{{ end }}
+          </p>          
+        </header>
 
           {{ .Content }}
         <hr>
@@ -38,7 +43,7 @@
         </a>
         </div>
         <hr>
-        Continue reading at <a href="{{ .Params.link }}">{{ .Params.linkBrand }}</a>
+        Continue reading at <a target = "_blank" href="{{ .Params.link }}">{{ .Params.linkBrand }}</a>
         {{ if (isset .Params "categories") }} | {{ range .Params.categories }}<a class="category" href="/categories/{{ . | urlize }}">#{{ . }}</a> {{ end }}{{ end }}        
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ with $related }}
@@ -60,9 +65,8 @@
       
     </nav>
     </main>
-
-     
-   
+ 
+       
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
   </body>

@@ -90,7 +90,7 @@ img {
     max-width: inherit!important;
 }
 .inner-card {
-    margin-top: 2.2rem!important;
+    margin-top: 0.9rem!important;
     padding-top:0px!important;
 }
 .ch-limit {
@@ -126,8 +126,8 @@ img {
     margin-bottom: 7px;
 }
 .post-title {
-    font-size: 2.0em!important;
-    font-weight: 700!important;
+    font-size: 1.6em!important;
+    font-weight: 500!important;
 }
 .detail-sm-block {
     margin-top:15px;
@@ -144,12 +144,15 @@ img {
 }
 .share-btn {
     color: #ffffff!important;
-    font-size: 20px;
+    /*font-size: 20px;*/
     padding: 0.3em;
     width: 3em;
 }
 .post-figure img {
-    margin-bottom:15px!important;    
+    margin-bottom:15px!important;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;    
 }
 .m-b-15 {
     margin-bottom:15px!important;
@@ -162,6 +165,7 @@ img {
     font-weight: 700!important;
     font-size: 14px!important;
     letter-spacing: 0.5px!important;
+    cursor: pointer;
 }
 .pagination-nav {
     margin: 0 auto!important;
@@ -190,7 +194,8 @@ img {
 }
 #searchsubmit .input-group .btn {
     border-left:0px!important;
-    padding: 9px 12px!important;   
+    padding: 9px 12px!important;
+    background-color: #D3D3D3;   
 }
 #searchsubmit .input-group .fas {
     font-size: 17px;
@@ -210,13 +215,21 @@ img {
 .cover-content {
     background-color: #fff!important;
     margin: 0 auto;
-    margin-top: -365px;
+    margin-top: -166px;
     position: relative;
     width: 80%;
     padding: 40px;
     border-radius: 3px;
     border: 1px solid #ededed;
-    min-height: 430px;
+    min-height: 610px;
+}
+
+.loadmore {
+    float: inherit!important;
+    margin: 0 auto;
+    width: 115px;
+    display: block;
+    text-align: center;
 }
 /* footer */
 .footer-wrap {
@@ -281,4 +294,30 @@ img {
 }
 .social .font {
     font-size:20px!important;
-} 
+}
+ .move_top {
+    display: none;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    background: url(../img/move_top.png);
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat !important;
+    background-size: contain;
+    background-position: bottom;
+    cursor: pointer;
+}
+.move_top:hover{
+    height:45px;
+    width: 45px;
+    right: 1.5%;
+    
+    
+}
+ .card-text.ch-limit p{
+    display:none;
+}
+.card-text.ch-limit p:first-child{
+    display:block;
+}

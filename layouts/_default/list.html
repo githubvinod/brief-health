@@ -23,12 +23,13 @@
     {{ end }}
     <input type="hidden" name="pageId" value="{{ $paginator.PageNumber }}" >
 
-    <!-- {{ if or ($paginator.HasPrev) ($paginator.HasNext) -}}
-    <nav class="pagination-nav side-padding">
-      {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-newer">&lt; Newer Posts</a>{{ end }}
-      {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-older">Older Posts &gt;</a>{{ end }}
+    <!-- {{ if or ($paginator.HasPrev) ($paginator.HasNext) -}} -->
+    <nav class="pagination-nav side-padding"> 
+      <!-- {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-newer ">&lt; Newer Posts</a>{{ end }} -->
+      {{ if $paginator.HasNext }}<a  onclick="loadMore.loadCnt()" class="loadmore pagination-older nextpage">Load More ...</a>{{ end }}
     </nav>
-    {{ end -}} -->
+    <!-- {{ end -}} -->
+    <div class="move_top"></div>
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
   </body>
@@ -49,7 +50,7 @@
       
   
       <div class="card-subtext muted-text">
-          ${ isset categories }<p class=>${ categories }</p>${ end }
+          ${ isset categories }<p>${ categories }</p>${ end }
       </div>
     </article>
   </div>    
@@ -66,5 +67,18 @@
     }
   });
 
+  $('.move_top').on('click',function(){
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  
+});
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    $(".move_top").css('display',"block");
+  } else {
+    $(".move_top").css('display', "none")  ;
+  }
+}
 </script>
