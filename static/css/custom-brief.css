@@ -321,3 +321,34 @@ img {
 .card-text.ch-limit p:first-child{
     display:block;
 }
+
+.top-ranked-links li {
+
+    display: inline-block;
+    height: -14px;
+    padding: margi 5px;
+    background-color: #f1f1f1;
+    border-radius: 2px;
+    display: inline-block;
+    font-weight: bolder;
+
+}
+.top-ranked-links {
+    padding-left: 0px !important;
+    margin-top: 5px;
+    margin-left: -22px;
+}
+.top-ranked-links a {
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.2em 0.4em !important;
+    background: #fff;
+    border: 1px solid #efefef;
+    text-decoration: none!important;
+}
+.top-ranked-links a:hover {
+    color:#fff;
+    background: #e44417;
+    border: 1px solid #e44417;    
+}
