@@ -52,13 +52,11 @@ func main() {
 		panic(err)
 	}
 
-	if err = publisher.Publish(ctx, "https://informvinu.dropmark.com/684931.json"); err != nil {
+	if err = publisher.Publish(ctx, "https://shah.dropmark.com/616548.json"); err != nil {
 		panic(err)
 	}
 
-	if err = publisher.Publish(ctx, "https://vprd.dropmark.com/684925.json"); err != nil {
-		panic(err)
-	}
+	 
 	
 
 }
