@@ -1,4 +1,4 @@
-baseURL = "https://vibrant-borg-9cc729.netlify.com/"
+baseURL = "/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 languageCode = "en-US"

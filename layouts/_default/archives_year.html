@@ -14,7 +14,7 @@
       </header> -->
       
       
-      {{ range (.Site.RegularPages.GroupByDate "2006") }}
+      {{ range  (.Site.RegularPages.GroupByDate "2006") }}
         {{ $ns := now.Format "2006" }}
         {{ $page := index .Pages 0 }}
         {{ $pgDt := $page.Date.Format "2006"}}
@@ -22,7 +22,7 @@
         {{ if eq $pgDt $ns }} 
         <h3>{{ $pgDt }}</h3>
           {{ $hasList := false}}
-          {{ range (where .Pages "Type" "post") }}
+          {{ range sort (where .Pages "Type" "post") "Params.yearview" "desc" }}
             {{ $hasList := true}}
             {{ .Render "li" }}
           {{- end }}  

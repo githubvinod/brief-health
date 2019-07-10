@@ -19,7 +19,7 @@
         {{ $pgDt := $page.Date.Format "January 2006"}}
         {{ if eq $pgDt $ns }} 
         <h3>{{ $pgDt }}</h3>
-          {{ range (where .Pages "Type" "post") }}
+          {{ range sort (where .Pages "Type" "post") "Params.monthview" "desc" }}
             {{ .Render "li" }}
           {{- end }}  
         {{- end }}  
